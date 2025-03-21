@@ -58,7 +58,7 @@ const redCar = new Image();
 redCar.src = "redCar.png"; 
 
 const azulCar = new Image();
-azulCar.src = "azulCar.png";
+azulCar.src = "azulCar.png"
 
 const draw = () => {
     ctx.clearRect(0, 0, anchoCanvas, altoCanvas);
@@ -69,6 +69,14 @@ const draw = () => {
 
 redCar.onload = () => draw();
 azulCar.onload = () => draw();
+
+redCar.onerror = () => {
+    console.error("Error al cargar la imagen redCar");
+};
+
+azulCar.onerror = () => {
+    console.error("Error al cargar la imagen azulCar");
+};
 
 //mover Pj
 let mover = false;
