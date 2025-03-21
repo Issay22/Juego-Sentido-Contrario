@@ -1,0 +1,380 @@
+*, *::before, *::after {
+    box-sizing: border-box;;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1.5px;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    min-width: 320px;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    border: 1px solid black;
+    touch-action: manipulation; /*quitar doble click */
+}
+
+/* Carga */
+    #loading {
+        display: flex; /*cambiar a Flex */
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        border: 1px solid black;
+    }
+
+    #barraCarga {
+        width: 70%;
+        height: 20px;
+        border: 1px solid black;
+        position: relative;
+    }
+
+    #barraCarga::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(
+            45deg, 
+            #ccc 25%, 
+            #00a000 25%, 
+            #00a000 50%, 
+            #ccc 50%, 
+            #ccc 75%, 
+            #00a000 75%, 
+            #00a000 100%
+        );
+        background-size: 20px 20px;
+        animation: relleno 2s linear forwards;
+    }
+
+    @keyframes relleno {
+        0% {
+            width: 0%;
+        }
+        100% {
+            width: 100%;
+        }
+    }
+/*  fin Carga */
+
+/*  Pan principal */
+#principal {
+    display: none; /*cambiar a Flex */
+    font-size: clamp(15px, 5vh, 18px);
+    text-align: center;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    height: 100vh;
+    border: 1px solid black;
+    background-image: linear-gradient(to top, #9890e3 0%, #b1f4cf 100%);
+}
+
+#principal p {
+    width: 50%;
+    text-align: justify;
+    font-size: clamp(12.7px, 3.3vw, 17px);
+    padding-bottom: 5%;
+}
+#principal h4, h5 {
+    font-size: clamp(25px, 6.2vw, 30px);
+    margin: 10px auto;
+    word-break: break-all; 
+    padding-bottom: 5%;
+}
+
+#principal button {
+    width: auto;
+    margin: 20px auto;
+    padding: 15px;
+    font-size: clamp(10px, 6.2vw, 25px);
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 10px;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.4);
+    padding-bottom: 5%;
+    background-image: linear-gradient(to right, #02AAB0 0%, #00CDAC  51%, #02AAB0  100%);
+    transition: 0.5s;
+    box-shadow: 0 0 20px #eee;
+}
+
+#principal button:hover {
+    background-color: #ccc;
+    transform: translate(0, -5px);
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+/* fin Pan principal */
+
+/* Juego */
+#juego{
+    display: none; /*cambiar a block */
+    height: 100vh;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#info {
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid black;
+    margin: 10px auto;
+    width: clamp(320px, 90vw, 600px);
+    letter-spacing: 1.5px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#juego p{
+    font-size: clamp(15px, 5vh, 18px);
+    margin: 10px auto;
+    padding-left: 5px;
+}
+
+#juego span {
+    font-size: clamp(15px, 5vh, 18px);
+    margin: 10px auto;
+    padding-left: 5px;
+}
+
+canvas {
+    width: 100%;
+    height: 100vh;
+    border: 1px solid black;
+    margin: 10px auto;
+    display: block;
+    aspect-ratio: 4 / 3;
+    
+    background: 
+        repeating-linear-gradient(
+            to bottom, 
+            transparent, transparent 10px, 
+            #333 10px, #333 20px
+        ), 
+        linear-gradient(
+            to right,
+            #333 0%, #333 24.5%,
+            #fff 24.5%, #fff 25.5%,
+
+            #333 25.5%, #333 49.5%,
+            #fff 49.5%, #fff 50.5%,
+
+            #333 50.5%, #333 74.5%,
+            #fff 74.5%, #fff 75.5%,
+            
+            #333 75.5%, #333 100%
+        );
+    background-size: 100% 20px, auto;
+}
+
+#controles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid black;
+    margin: 10px auto;
+    width: clamp(320px, 90vw, 600px);
+    background-color: #333;
+}
+
+#juego button{
+    width: 50%;
+    margin: 10px auto;
+    padding: 15px;
+    font-size: clamp(20px, 8vw, 50px);
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    letter-spacing: 1.5px;
+    transition: .7s cubic-bezier(0,.8,.26,.99);
+    background-color: #333!important;
+    color: white;
+    box-shadow: 0 -4px rgb(0 0 0 / 50%) inset, 0 4px rgb(255 255 255 / 20%) inset, -4px 0 rgb(255 255 255 / 20%) inset, 4px 0 rgb(0 0 0 / 50%) inset;
+}
+    
+#juego button::after{
+    box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+    transition: .7s cubic-bezier(0,.8,.26,.99);
+}
+
+#juego button:hover:before {
+    box-shadow: 0 -4px rgb(0 0 0 / 50%) inset, 0 4px rgb(255 255 255 / 20%) inset, -4px 0 rgb(255 255 255 / 20%) inset, 4px 0 rgb(0 0 0 / 50%) inset;
+}
+
+#juego button:hover:after {
+    box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+}
+  
+#juego button:active {
+    transform: translateY(4px);
+}
+  
+#juego button:active:after {
+    box-shadow: 0 0px 0 0 rgb(0 0 0 / 15%);
+}
+
+#crash {
+    display: none; /* cambiar a bloque */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    background-color: black;
+    color: #e03c00;
+    font-family: 'Arial', sans-serif;
+    z-index: 1000;
+}
+/* fin Juego */
+
+/* Pantalla final */
+#gameOver {
+    display: none; /*cambiar a Flex */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    color: #e03c00;
+    font-family: 'Arial', sans-serif;
+}
+
+#gameOver h1 {
+    font-size: 4em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+    animation: aparecer 3s ease-in-out;
+    padding-bottom: 5%;
+}
+
+#reset {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #e03c00;
+    text-shadow: 2px 2px 4px rgba(255, 251, 0, 0.8);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    animation: aparecer 3s ease-in-out;
+    box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+    padding-bottom: 5%;
+}
+
+#reset:hover {
+    background-color: #e63900;
+    transform: translate(0, -5px);
+}
+
+#divPunts{
+    color: white;
+    margin-bottom: 20px;
+    animation: aparecer 3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}
+
+#memoria{
+    width: 100%;
+    height: auto;
+    margin-top: 10%;
+    transition: background-color 0.3s ease;
+    animation: aparecer 3s ease-in-out;
+}
+
+#score{
+    width: 100%;
+    text-align: center;
+    color: white;
+    margin-bottom: 2%;
+}
+
+#titulo{
+    text-align: center;
+    color: white; 
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin-left: 6%;
+    padding: 2%;
+}
+
+ol li {
+    color: white;
+}
+
+li{
+    width: auto;
+    margin: 5% auto;
+}
+
+.memory{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5%;
+}
+
+.punt, .nombre, .fecha{
+    min-width: 25%; 
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* fin Pantalla final */
+
+@media (min-width: 601px) {
+    body {
+        max-width: 390px;
+        max-height: 844px;
+        margin: 0 auto;
+        position: relative;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    canvas {
+        max-width:380px;
+        max-height: 70vh;
+        border: 1px solid black;
+        margin: 10px auto;
+    }
+
+    #info {
+        max-width: 380px;
+    }
+
+    #controles {
+        max-width: 380px;
+    }
+}
+
+@media (min-height: 376px) {
+    canvas {
+        max-height: 65vh;
+    }
+}

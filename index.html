@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentido contrario!!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="loading">
+        <div id="img-coche"></div>
+        <h1>Cargando...</h1>
+        <div id="barraCarga"></div>
+    </div>
+
+    <div id="principal">
+        <h4>Carril equivocado!!</h4>
+        <h5>Seguimos?</h5>
+        <button type="button" id="facil">Simón</button>
+            <p>Lo bueno que todos están de vacaciones...</p>
+        <button type="button" id="dificil">No pasa nada!!</button>
+            <p>Dale, sin miedo!</p>
+            <button type="button" id="extremo">Manos les faltan...</button>
+        <p>"Me voe a matrr!"</p>
+    </div>
+
+    <div id="juego">
+        <div id="info">
+            <div id="puntaje">
+                <p>Puntaje: <span id="puntos">0</span></p>
+            </div>
+            <div id="vidas">
+                <p>Vidas: <span id="cantVidas">3</span></p> 
+            </div>
+            <div id="nivel">
+                <p>Nivel: <span id="lvl">1</span></p>   
+            </div>
+        </div>
+    
+        <canvas id="canvas" width="800" height="600"></canvas>
+        <div id="crash">
+            <h1>¡Choque!</h1>
+        </div>
+
+        <div id="controles">
+            <button type="button" id="izq">←</button>
+            <button type="button" id="der">→</button>
+        </div>
+    </div>
+
+    <div id="gameOver">
+        <h1>Game Over</h1>
+        <button type="reset" id="reset">Reiniciar</button>
+        <div id="divPunts">
+            <p>Tu puntaje fue de:</p>
+            <span id="goPuntos">0</span>
+        </div>
+        
+        <div id="memoria">
+            <div id="score">Score</div>
+            <div id="titulo">
+                <span>Puntos</span>
+                <span>Nombre</span>
+                <span>Fecha</span>
+            </div>
+            <ol id="lista">
+                <li>
+                    <div class="memory">
+                        <div class="punt">995</div>
+                        <div class="nombre">Isay</div>
+                        <div class="fecha">3/19/2025</div>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
