@@ -55,7 +55,7 @@ let yCar = 0;
 
 //Dibujar pj
 const redCar = new Image();
-redCar.src = "redCar.png"; 
+redCar.src = "redCar.PNG"; 
 
 const azulCar = new Image();
 azulCar.src = "azulCar.png";
